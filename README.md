@@ -1,7 +1,6 @@
 # Digital-Exchange-Agent
 
 ## 1. Documentation
-
 ### 1.1 Introduction
 
 The goal of this project is to develop a **Digital Exchange Agent**—a digitalized transaction service accessible through a web application. It’s not intended to be a production-ready solution; for now, it's available for local setup only.
