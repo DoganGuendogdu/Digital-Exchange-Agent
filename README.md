@@ -51,3 +51,8 @@ The main audience includes fellow developers and potential employers to whom I m
 #### 1.2.6 Recovery
 - I want to delete transactions and recover them if needed.  
 - I want access to a bin to review deleted items.
+
+### 1.3 Database design
+![Alt text](documentation/images/01_database-ER-diagram.png)
+
+
