@@ -53,6 +53,5 @@ The main audience includes fellow developers and potential employers to whom I m
 - I want access to a bin to review deleted items.
 
 ### 1.3 Database design
-![Alt text](documentation/images/01_database-ER-diagram.png)
 
 
