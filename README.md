@@ -53,5 +53,10 @@ The main audience includes fellow developers and potential employers to whom I m
 - I want access to a bin to review deleted items.
 
 ### 1.3 Database design
-
-
+#### 1.3.1 Data models
+The approach to designing the data models and their relationships is grounded in the **User Stories**.
+Each *noun* from the stories is treated as a potential **entity**, while *verbs* help define the **relationships** between them.
+The structure follows **crow’s foot notation** to clearly represent connections.
+Additionally, entities are annotated with specific functionalities drawn directly from the user needs,
+ensuring alignment between the data model and the intended application behavior.
+<img src="documentation/images/01_database-ER-diagram.drawio.png" alt="Database ER diagram" width="2400"/>
