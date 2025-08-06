@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active:
+      - dev
+  application:
+    name: Digital-Exchange-Agent
+server:
+  port: 8080
