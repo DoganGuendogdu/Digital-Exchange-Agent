@@ -6,3 +6,15 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none # Ensure that DDL operations can only be executed by script
+    properties:
+      hibernate:
+        hbm2ddl:
+          import_files: schema.sql
+  sql:
+    init:
+      mode: ALWAYS # Enforce script-based schema initialization for non in-memory databases
+logging:
+  level:
+    org.springframework: trace
