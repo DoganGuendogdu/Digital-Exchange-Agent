@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +21,12 @@ import static org.springframework.http.HttpStatus.CREATED;
 @Slf4j
 public class AccountController {
     private final AccountService accountService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final static Logger logger = LoggerFactory.getLogger(AccountController.class);
 
-    public AccountController(AccountService accountService) {
+    public AccountController(AccountService accountService,BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.accountService = accountService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @PostMapping
@@ -34,7 +37,7 @@ public class AccountController {
                 accountDTO.surname(),
                 accountDTO.sex(),
                 accountDTO.email(),
-                accountDTO.password(),
+                bCryptPasswordEncoder.encode(accountDTO.password()),
                 accountDTO.phoneNumber());
         logger.debug("Created Account '{}' from DTO: '{}'", account, accountDTO);
 
