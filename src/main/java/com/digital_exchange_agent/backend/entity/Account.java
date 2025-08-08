@@ -60,7 +60,6 @@ public class Account {
         return this.sex;
     }
 
-
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
