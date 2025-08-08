@@ -1,6 +1,7 @@
 package com.digital_exchange_agent.backend.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Recipient {
@@ -22,6 +23,7 @@ public class Recipient {
     private String email;
 
     @Column(name = "PHONE_NUMBER")
+    @Length(max = 25)
     private String phone_number;
 
     public Recipient(String name, String surname, Sex sex, String email, String phone_number) {

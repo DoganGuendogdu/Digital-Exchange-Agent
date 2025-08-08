@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.Length;
 
 /*
 - @NonNull -> checks if variable != null
@@ -16,5 +17,5 @@ public record RecipientDTO(
         @NotBlank String surname,
         @NonNull Sex sex,
         @NotBlank @Email String email,
-        String phone_number) {
+        @Length(max = 25) String phone_number) {
 }
