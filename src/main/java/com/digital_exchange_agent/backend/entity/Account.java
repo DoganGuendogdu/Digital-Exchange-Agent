@@ -29,7 +29,7 @@ public class Account {
     private String email;
 
     @Column(name = "PASSWORD", nullable = false)
-    @Length(max = 40)
+    @Length(max = 60)
     private String password;
 
     @Column(name = "PHONE_NUMBER")

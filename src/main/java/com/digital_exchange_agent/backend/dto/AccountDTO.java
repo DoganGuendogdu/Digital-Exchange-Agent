@@ -11,6 +11,6 @@ public record AccountDTO(
         @NotBlank @Length(max = 255) String surname,
         @NonNull Sex sex,
         @NotBlank @Email @Length(max = 255) String email,
-        @NotBlank @Length(max = 40) String password,
+        @NotBlank @Length(max = 60) String password,
         @NotBlank @Length(max = 25) String phoneNumber){
 }
