@@ -53,10 +53,4 @@ public class AccountController {
             return responseFailure;
         }
     }
-
-    @GetMapping
-    public ResponseEntity<List<Account>> getAccounts(){
-        return new ResponseEntity<>(accountService.getAccounts(), HttpStatus.OK);
-//        return accountService.getAccounts();
-    }
 }
