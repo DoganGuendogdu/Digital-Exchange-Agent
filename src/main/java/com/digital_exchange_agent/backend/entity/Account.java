@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.List;
+
 @Entity
 public class Account {
     @Id
@@ -35,6 +37,9 @@ public class Account {
     @Column(name = "PHONE_NUMBER")
     @Length(max = 25)
     private String phoneNumber;
+
+    @OneToMany
+    private List<Transactions> transaction;
 
     public Account(String name, String surname, Sex sex, String email, String password, String phoneNumber) {
         this.name = name;
