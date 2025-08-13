@@ -44,7 +44,7 @@ public class Recipient {
         this.phone_number = phone_number;
     }
 
-    public Recipient(String name) {
+    public Recipient() {
     }
 
     public String getName() {
