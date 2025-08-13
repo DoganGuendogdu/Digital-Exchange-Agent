@@ -47,24 +47,59 @@ public class Recipient {
     public Recipient() {
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSurname() {
         return this.surname;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public Sex getSex() {
         return this.sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     public String getEmail() {
         return this.email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPhoneNumber() {
         return this.phone_number;
     }
 
+    public void setPhoneNumber(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public List<Transactions> getTransaction() {
+        return this.transaction;
+    }
+
+    public void setTransaction(List<Transactions> transaction) {
+        this.transaction = transaction;
+    }
 }
