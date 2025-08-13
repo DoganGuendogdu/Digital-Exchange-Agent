@@ -3,6 +3,8 @@ package com.digital_exchange_agent.backend.entity;
 import jakarta.persistence.*;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.List;
+
 @Entity
 public class Recipient {
     @Id
@@ -26,7 +28,15 @@ public class Recipient {
     @Length(max = 25)
     private String phone_number;
 
-    public Recipient(String name, String surname, Sex sex, String email, String phone_number) {
+    @OneToMany
+    private List<Transactions> transaction;
+
+    public Recipient(
+            String name,
+            String surname,
+            Sex sex,
+            String email,
+            String phone_number) {
         this.name = name;
         this.surname = surname;
         this.sex = sex;
