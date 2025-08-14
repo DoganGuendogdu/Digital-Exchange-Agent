@@ -1,6 +1,6 @@
 package com.digital_exchange_agent.backend.dto;
 
-import com.digital_exchange_agent.backend.entity.Sex;
+import com.digital_exchange_agent.backend.entity.common.enums.Sex;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.NonNull;

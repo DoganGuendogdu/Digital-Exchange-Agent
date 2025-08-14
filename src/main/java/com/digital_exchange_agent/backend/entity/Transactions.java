@@ -1,7 +1,7 @@
 package com.digital_exchange_agent.backend.entity;
 
-import com.digital_exchange_agent.backend.utility.PriorityLevel;
-import com.digital_exchange_agent.backend.utility.Status;
+import com.digital_exchange_agent.backend.entity.common.enums.PriorityLevel;
+import com.digital_exchange_agent.backend.entity.common.enums.Status;
 import jakarta.persistence.*;
 
 import java.util.List;

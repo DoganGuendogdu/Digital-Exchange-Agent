@@ -1,7 +1,7 @@
 package com.digital_exchange_agent.backend.entity;
 
-import com.digital_exchange_agent.backend.utility.FileType;
-import com.digital_exchange_agent.backend.utility.Status;
+import com.digital_exchange_agent.backend.entity.common.enums.FileType;
+import com.digital_exchange_agent.backend.entity.common.enums.Status;
 import jakarta.persistence.*;
 
 @Entity

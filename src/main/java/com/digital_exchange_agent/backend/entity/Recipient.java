@@ -1,5 +1,6 @@
 package com.digital_exchange_agent.backend.entity;
 
+import com.digital_exchange_agent.backend.entity.common.enums.Sex;
 import jakarta.persistence.*;
 import org.hibernate.validator.constraints.Length;
 
