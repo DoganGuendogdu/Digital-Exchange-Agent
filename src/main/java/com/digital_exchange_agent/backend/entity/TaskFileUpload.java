@@ -28,6 +28,9 @@ public class TaskFileUpload extends Task {
     @Column(name = "FILE_NAME", nullable = false)
     private String fileName;
 
+    @Column(name = "UPLOADED_AT")
+    private LocalDateTime uploadedAt;
+
     public TaskFileUpload() {
         super();
     }
