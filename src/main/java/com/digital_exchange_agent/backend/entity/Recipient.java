@@ -20,6 +20,7 @@ public class Recipient {
     private String surname;
 
     @Column(name = "SEX", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Sex sex;
 
     @Column(name = "EMAIL", nullable = false)
@@ -50,10 +51,6 @@ public class Recipient {
 
     public int getId() {
         return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
