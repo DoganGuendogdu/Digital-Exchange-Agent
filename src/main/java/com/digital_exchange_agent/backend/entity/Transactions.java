@@ -5,6 +5,7 @@ import com.digital_exchange_agent.backend.entity.common.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -48,6 +49,9 @@ public class Transactions {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(name = "CREATED_AT", nullable = false)
+    private LocalDateTime createdAt;
+
         /*
         TODO: Add time fields:
         - EXPIRED_AT,
@@ -63,7 +67,8 @@ public class Transactions {
             String custom_info,
             String tags,
             PriorityLevel priorityLevel,
-            Status status) {
+            Status status,
+            LocalDateTime createdAt) {
         this.recipient = recipient;
         this.account = account;
         this.topic = topic;
@@ -72,6 +77,7 @@ public class Transactions {
         this.tags = tags;
         this.priorityLevel = priorityLevel;
         this.status = status;
+        this.createdAt = createdAt;
     }
 
     public Transactions() {
