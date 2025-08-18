@@ -1,0 +1,2 @@
+INSERT INTO ACCOUNT (NAME, SURNAME, SEX,  EMAIL, PASSWORD, PHONE_NUMBER) VALUES ('John', 'Doe', 'MALE', 'john.doe@gmail.com', 'password', '123456789');
+INSERT INTO RECIPIENT (NAME, SURNAME, SEX, EMAIL, PHONE_NUMBER) VALUES ('Olaf', 'Meier', 'FEMALE', 'olaf-meier@gmail.com', '1212212');
