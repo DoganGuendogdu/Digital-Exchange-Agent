@@ -30,7 +30,7 @@ public class Recipient {
     @Length(max = 25)
     private String phone_number;
 
-    @OneToMany
+    @OneToMany(mappedBy = "recipient")
     private List<Transactions> transaction;
 
     public Recipient(
