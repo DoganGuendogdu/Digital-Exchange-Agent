@@ -100,4 +100,12 @@ public class TaskFileUpload extends Task {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public LocalDateTime getUploadedAt() {
+        return uploadedAt;
+    }
+
+    public void setUploadedAt(LocalDateTime uploadedAt) {
+        this.uploadedAt = uploadedAt;
+    }
 }
