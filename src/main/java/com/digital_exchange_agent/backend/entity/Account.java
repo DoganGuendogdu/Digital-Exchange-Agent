@@ -23,6 +23,7 @@ public class Account {
     private String surname;
 
     @Column(name = "SEX", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Sex sex;
 
     @Column(name = "EMAIL", nullable = false)
@@ -71,10 +72,6 @@ public class Account {
 
     public int getId() {
         return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {
