@@ -1,5 +1,6 @@
 package com.digital_exchange_agent.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class Task {
 
     @JoinColumn(name = "TRANSACTION_ID", nullable = false, unique = true)
     @ManyToOne
+    @JsonIgnore
     private Transactions transaction;
 
     public Task() {
