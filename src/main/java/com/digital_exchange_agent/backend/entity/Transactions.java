@@ -26,7 +26,7 @@ public class Transactions {
     @JsonIgnore
     private Account account;
 
-    @OneToMany
+    @OneToMany(mappedBy = "transaction")
     private List<Task> task;
 
     @Column(name = "TOPIC", nullable = false)
