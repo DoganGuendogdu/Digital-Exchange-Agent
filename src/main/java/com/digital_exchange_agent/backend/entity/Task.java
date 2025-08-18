@@ -27,10 +27,6 @@ public class Task {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Transactions getTransaction() {
         return transaction;
     }
