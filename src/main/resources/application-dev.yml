@@ -15,6 +15,10 @@ spring:
   sql:
     init:
       mode: ALWAYS # Enforce script-based schema initialization for non in-memory databases
+      schema-locations:
+        - 'classpath:schema.sql'
+      data-locations:
+        - 'classpath:data.sql'
 logging:
   level:
     org.springframework: trace
