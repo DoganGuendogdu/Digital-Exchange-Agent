@@ -19,8 +19,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(int id, Transactions transaction) {
-        this.id = id;
+    public Task(Transactions transaction) {;
         this.transaction = transaction;
     }
 
