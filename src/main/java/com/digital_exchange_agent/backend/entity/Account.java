@@ -39,7 +39,7 @@ public class Account {
     @Length(max = 25)
     private String phoneNumber;
 
-    @OneToMany
+    @OneToMany(mappedBy = "account")
     private List<Transactions> transaction;
 
     public Account(String name, String surname, Sex sex, String email, String password, String phoneNumber) {
