@@ -4,6 +4,8 @@ import com.digital_exchange_agent.backend.entity.common.enums.FileType;
 import com.digital_exchange_agent.backend.entity.common.enums.Status;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @PrimaryKeyJoinColumn(name = "ID")
 public class TaskFileUpload extends Task {
