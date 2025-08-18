@@ -2,6 +2,7 @@ package com.digital_exchange_agent.backend.entity;
 
 import com.digital_exchange_agent.backend.entity.common.enums.PriorityLevel;
 import com.digital_exchange_agent.backend.entity.common.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,10 +17,12 @@ public class Transactions {
 
     @JoinColumn(name = "RECIPIENT_ID", nullable = false)
     @ManyToOne
+    @JsonIgnore
     private Recipient recipient;
 
     @JoinColumn(name = "ACCOUNT_ID", nullable = false)
     @ManyToOne
+    @JsonIgnore
     private Account account;
 
     @OneToMany
