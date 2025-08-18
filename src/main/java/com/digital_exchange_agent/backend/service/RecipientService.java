@@ -17,7 +17,7 @@ public class RecipientService {
         this.recipientRepository = recipientRepository;
     }
 
-    public Recipient createRecipient(Recipient recipient) throws Exception {
+    public Recipient createRecipient(Recipient recipient) {
         return recipientRepository.save(recipient);
     }
 
