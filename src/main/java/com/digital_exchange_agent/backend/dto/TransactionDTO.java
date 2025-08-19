@@ -4,6 +4,9 @@ import com.digital_exchange_agent.backend.entity.common.enums.PriorityLevel;
 import com.digital_exchange_agent.backend.entity.common.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 public record TransactionDTO(
         @NotNull(message = "Id of Recipient can not be null") int recipientId,
@@ -13,5 +16,6 @@ public record TransactionDTO(
         String customInfo,
         String tags,
         @NotNull(message = "Priority can not be null") PriorityLevel priorityLevel,
-        @NotNull(message = "Status can not be null") Status status) {
-}
+        @NotNull(message = "Status can not be null") Status status,
+        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @NotNull(message = "CreatedAt can ne null")LocalDateTime createdAt) {
+    }
