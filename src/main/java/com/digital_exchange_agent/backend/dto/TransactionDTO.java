@@ -6,10 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record TransactionDTO(
-        @NotNull(message = "Recipient can not be null") RecipientDTO recipientDTO,
-        @NotNull(message = "Account can not be null") AccountDTO accountDTO,
-        @NotNull(message = "Task can not be null") TaskDTO taskDTO,
-        TaskFileUploadDTO taskFileUploadDTO,
+        @NotNull(message = "Id of Recipient can not be null") int recipientId,
+        @NotNull(message = "Id of Account can not be null")  int accountId,
         @NotBlank(message = "Topic can not be blank") String topic,
         String response,
         String customInfo,
