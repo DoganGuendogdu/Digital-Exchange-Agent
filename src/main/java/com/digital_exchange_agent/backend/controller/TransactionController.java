@@ -3,18 +3,24 @@ package com.digital_exchange_agent.backend.controller;
 import com.digital_exchange_agent.backend.dto.TransactionDTO;
 import com.digital_exchange_agent.backend.entity.Transactions;
 import com.digital_exchange_agent.backend.service.*;
+
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/transaction")
+@Slf4j
 public class TransactionController {
     private final TransactionService transactionService;
     private final AccountService accountService;
     private final RecipientService recipientService;
-    private final TaskService taskService;
-    private final TaskFIleUploadService taskFIleUploadService;
+
+    private static final Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
     public TransactionController(
             TransactionService transactionService,
