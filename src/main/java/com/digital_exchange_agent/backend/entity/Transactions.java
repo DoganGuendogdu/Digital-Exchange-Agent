@@ -16,6 +16,10 @@ public class Transactions {
     @Column(name = "ID", nullable = false, unique = true)
     private int id;
 
+    @OneToMany(mappedBy = "transaction")
+    @JsonIgnore
+    private List<Task> task;
+
     @JoinColumn(name = "RECIPIENT_ID", nullable = false)
     @ManyToOne
     @JsonIgnore
