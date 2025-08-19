@@ -2,6 +2,7 @@ package com.digital_exchange_agent.backend.service;
 
 import com.digital_exchange_agent.backend.entity.Transactions;
 import com.digital_exchange_agent.backend.repository.TransactionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,12 @@ public class TransactionService {
 
     public Transactions createTransaction(Transactions transaction) {
         return transactionRepository.save(transaction);
+    }
+
+    public Optional<Transactions> getTransactionById(Integer id) {
+        return transactionRepository.findById(id).or(() -> {
+            throw new EntityNotFoundException("Transaction with id " + id + " not found");
+        });
     }
 
     public Optional<List<Transactions>> getTransactions() {
