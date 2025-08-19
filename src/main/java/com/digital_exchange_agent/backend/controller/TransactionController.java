@@ -32,43 +32,43 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Transactions> createTransactionForMVP() {
-        var defaultRecipient = recipientService.getDefaultRecipientForMVP();
-        var defaultAccount = accountService.getDefaultAccountForMVP();
+    public ResponseEntity<Transactions> createTransaction(@RequestBody @Validated TransactionDTO transactionDTO) {
+        var recipientOpt = recipientService.getRecipientById(transactionDTO.recipientId());
+        var accountOpt = accountService.getAccountById(transactionDTO.accountId());
 
-        if (defaultRecipient.isPresent() && defaultAccount.isPresent()) {
-            var transactionDefault = new Transactions(
-                    defaultRecipient.get(),
-                    defaultAccount.get(),
-                    "Test topic",
-                    "balabalab response",
-                    "blababa custom info",
-                    "blababa tags",
-                    PriorityLevel.LOW,
-                    Status.IN_PROGRESS,
-                    LocalDateTime.now()
-            );
+        logger.debug("Extracting recipient {} as Optional from TransactionDTO: {}",recipientOpt,  transactionDTO.recipientId());
+        logger.debug("Extracting account {} as Optional from TransactionDTO: {}", accountOpt, transactionDTO.accountId());
 
-            try {
-                transactionService.createTransaction(transactionDefault);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return ResponseEntity.badRequest().body(null);
-            }
+        if (recipientOpt.isEmpty() || accountOpt.isEmpty()) {
+            logger.error("Recipient or Account not found for TransactionDTO: {}", transactionDTO);
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok().build();
-    }
 
-    @GetMapping
-    public ResponseEntity<List<Transactions>> getTransactions() {
-        var transactionListOptional = transactionService.getTransactions();
+        var recipient = recipientOpt.get();
+        var account = accountOpt.get();
 
-        try{
-            if (transactionListOptional.isPresent())
-                return ResponseEntity.ok(transactionListOptional.get());
-            return ResponseEntity.notFound().build();
-        }
-        catch (Exception e){
+        logger.debug("Recipient found: {}", recipient);
+        logger.debug("Account found: {}", account);
+
+        var transaction = new Transactions(
+                recipient,
+                account,
+                transactionDTO.topic(),
+                transactionDTO.response(),
+                transactionDTO.customInfo(),
+                transactionDTO.tags(),
+                transactionDTO.priorityLevel(),
+                transactionDTO.status(),
+                transactionDTO.createdAt()
+        );
+        logger.debug("Created Transaction {}", transaction);
+
+        try {
+            var createdTransaction = transactionService.createTransaction(transaction);
+            logger.debug("Transaction created successfully: {}", createdTransaction);
+            return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
+        } catch (Exception e) {
+            logger.error("Failed to create transaction: {}", e.getMessage());
             return ResponseEntity.badRequest().build();
         }
     }
