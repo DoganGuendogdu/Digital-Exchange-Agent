@@ -30,9 +30,6 @@ public class Transactions {
     @JsonIgnore
     private Account account;
 
-    @OneToMany(mappedBy = "transaction")
-    private List<Task> task;
-
     @Column(name = "TOPIC", nullable = false)
     private String topic;
 
