@@ -84,6 +84,23 @@ public class Transactions {
     public Transactions() {
     }
 
+    @Override
+    public String toString() {
+        return """
+                Transactions {
+                    id = %d
+                    recipient = %s
+                    account = %s
+                    topic = '%s'
+                    response = '%s'
+                    custom_info = '%s'
+                    tags = '%s'
+                    priorityLevel = %s
+                    status = %s
+                    createdAt = %s
+                }""".formatted(id, recipient, account, topic, response, custom_info, tags, priorityLevel, status, createdAt);
+    }
+
     public int getId() {
         return id;
     }
