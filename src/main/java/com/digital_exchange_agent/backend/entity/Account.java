@@ -54,6 +54,18 @@ public class Account {
     public Account() {
     }
 
+    public String toString() {
+        return """
+                  Account {
+                        id = %d
+                        name = '%s'
+                        surname = '%s'
+                        sex = %s
+                        email = '%s''
+                        phoneNumber = '%s'
+                }""".formatted(id, name, surname, sex, email, phoneNumber);
+    }
+
     public String getName() {
         return this.name;
     }
