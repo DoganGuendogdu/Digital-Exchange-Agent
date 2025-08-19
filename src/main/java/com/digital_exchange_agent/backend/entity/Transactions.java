@@ -180,4 +180,12 @@ public class Transactions {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 }
