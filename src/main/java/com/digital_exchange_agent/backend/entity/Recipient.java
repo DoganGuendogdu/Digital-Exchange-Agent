@@ -49,6 +49,19 @@ public class Recipient {
     public Recipient() {
     }
 
+    @Override
+    public String toString() {
+        return """
+                Recipient {
+                    id = %d,
+                    name = '%s',
+                    surname = '%s',
+                    sex = '%s',
+                    email = '%s',
+                    phone_number = '%s'
+                """.formatted(id, name, surname, sex, email, phone_number);
+    }
+
     public int getId() {
         return this.id;
     }
