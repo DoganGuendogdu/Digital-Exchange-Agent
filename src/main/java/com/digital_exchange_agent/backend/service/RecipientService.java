@@ -2,6 +2,7 @@ package com.digital_exchange_agent.backend.service;
 
 import com.digital_exchange_agent.backend.entity.Recipient;
 import com.digital_exchange_agent.backend.repository.RecipientRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,9 +26,9 @@ public class RecipientService {
         return Optional.of(recipientRepository.findAll());
     }
 
-    public Optional<Recipient> getDefaultRecipientForMVP() {
-        final Integer recipientID = 1;
-
-        return recipientRepository.findById(recipientID);
+    public Optional<Recipient> getRecipientById(int id) {
+        return recipientRepository.findById(id).or(() -> {
+            throw new EntityNotFoundException("Recipient with id " + id + " not found");
+        });
     }
 }
