@@ -25,9 +25,7 @@ public class TransactionController {
     public TransactionController(
             TransactionService transactionService,
             AccountService accountService,
-            RecipientService recipientService,
-            TaskService taskService,
-            TaskFIleUploadService taskFIleUploadService) {
+            RecipientService recipientService) {
         this.transactionService = transactionService;
         this.accountService = accountService;
         this.recipientService = recipientService;
