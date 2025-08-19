@@ -29,8 +29,6 @@ public class TransactionController {
         this.transactionService = transactionService;
         this.accountService = accountService;
         this.recipientService = recipientService;
-        this.taskService = taskService;
-        this.taskFIleUploadService = taskFIleUploadService;
     }
 
     @PostMapping
