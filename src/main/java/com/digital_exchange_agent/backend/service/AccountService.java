@@ -2,6 +2,7 @@ package com.digital_exchange_agent.backend.service;
 
 import com.digital_exchange_agent.backend.entity.Account;
 import com.digital_exchange_agent.backend.repository.AccountRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,12 @@ public class AccountService {
 
     public List<Account> getAccounts() {
         return accountRepository.findAll();
+    }
+
+    public Optional<Account> getAccountById(int id) {
+        return accountRepository.findById(id).or(() -> {
+            throw new EntityNotFoundException("Account with id " + id + " not found");
+        });
     }
 
     public Optional<Account> getDefaultAccountForMVP() {
