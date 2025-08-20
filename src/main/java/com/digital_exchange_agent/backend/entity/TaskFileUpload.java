@@ -38,13 +38,14 @@ public class TaskFileUpload extends Task {
     }
 
     public TaskFileUpload(
+            Transactions transactions,
             byte[] file,
             FileType fileType,
             String customInfo,
             Status status,
             int stepNumber,
             String fileName) {
-        super();
+        super(transactions);
         this.file = file;
         this.fileType = fileType;
         this.customInfo = customInfo;

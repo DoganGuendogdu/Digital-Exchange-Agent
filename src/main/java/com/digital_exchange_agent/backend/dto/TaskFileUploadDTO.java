@@ -8,11 +8,12 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public record TaskFileUploadDTO(
-        @NotNull byte[] file,
-        @NotNull FileType fileType,
+        @NotNull(message = "Id of transaction can not be null") int transactionId,
+        @NotNull(message = "File can not be null") byte[] file,
+        @NotNull(message = "File type can not be null") FileType fileType,
         String customInfo,
-        @NotNull Status status,
-        @NotNull int stepNumber,
-        LocalDateTime uploadedAt,
-        @NotBlank String fileName) {
+        @NotNull(message = "Status can not be null") Status status,
+        @NotNull(message = "Step number can not be null") int stepNumber,
+        @NotBlank(message = "FIle name can not be null") String fileName,
+        LocalDateTime uploadedAt) {
 }
