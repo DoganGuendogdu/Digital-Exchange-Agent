@@ -69,7 +69,7 @@ public class TransactionController {
             return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
         } catch (Exception e) {
             logger.error("Failed to create transaction: {}", e.getMessage());
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.internalServerError().build();
         }
     }
 }
