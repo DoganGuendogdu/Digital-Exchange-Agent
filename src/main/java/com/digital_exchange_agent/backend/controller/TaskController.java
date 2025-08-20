@@ -56,4 +56,37 @@ public class TaskController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @PostMapping("/task_upload")
+    public ResponseEntity<TaskFileUpload> createTaskFileUpload(@RequestBody @Validated TaskFileUploadDTO taskFileUploadDTO) {
+        logger.debug("Received TaskFileUpload request: {}", taskFileUploadDTO);
+
+        var transactionOpt = transactionService.getTransactionById(taskFileUploadDTO.transactionId());
+
+        if (transactionOpt.isEmpty()) {
+            logger.error("Transaction does not exist");
+            throw new NullPointerException("Transaction is null");
+        }
+        logger.debug("Retrieving transaction {}", transactionOpt);
+
+;
+        var taskFileUpload = new TaskFileUpload(
+                transactionOpt.get(),
+                taskFileUploadDTO.file(),
+                taskFileUploadDTO.fileType(),
+                taskFileUploadDTO.customInfo(),
+                taskFileUploadDTO.status(),
+                taskFileUploadDTO.stepNumber(),
+                taskFileUploadDTO.fileName()
+        );
+
+        try {
+            TaskFileUpload createdTaskFileUpload = taskFIleUploadService.createTaskFileUpload(taskFileUpload);
+            logger.debug("TaskFileUpload created successfully: {}", createdTaskFileUpload);
+            return new ResponseEntity<>(createdTaskFileUpload, HttpStatus.CREATED);
+        } catch (Exception e) {
+            logger.error("Failed to create TaskFileUpload: {}", e.getMessage());
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
